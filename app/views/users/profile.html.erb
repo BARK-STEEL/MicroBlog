@@ -1,3 +1,14 @@
+<input type="hidden" id="api-token" value="<%= @user.token %>">
+
 <h3>Welcome, <%= @user.username %>! </h3>
 
 <%= button_to 'Log Out', log_out_path, method: :delete %>
+
+<form id="create-post" action="/api/posts" method="post">
+  <input type="text" id="title" name="post[title]" placeholder="title">
+  <input type="text" id="content" name="post[content]" placeholder="content">
+  <button type="submit">Submit</button>
+</form>
+
+<section id="posts-container">
+</section>
