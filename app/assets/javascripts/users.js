@@ -14,7 +14,9 @@
 //= require jquery_ujs
 //= require underscore
 //= require backbone
-//= require app
+//= require datetime
 //= require turbolinks
+//= require materialize
+//= require app
 
 console.log('...users manifest loaded');

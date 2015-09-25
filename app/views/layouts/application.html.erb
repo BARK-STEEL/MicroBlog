@@ -3,12 +3,27 @@
 <head>
   <title>Blog</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag "styles.css" %>
+<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  
+  <div class="siteLogo z-depth-1">
+    <h1 class="title">
+      talk to me, goose
+    </h1>
+    <p class="tagline">
+      a safe place to air it out
+    </p>
+  </div>
+
 <%= yield %>
+<script>
+$(document).ready(function(){
+  $('#fontSelect').material_select();
+});
+</script>
 
 </body>
 </html>

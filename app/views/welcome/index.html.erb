@@ -1,4 +1,10 @@
-<h3>Welcome!</h3>
 
-<%= button_to 'Sign Up', sign_up_path, method: :get %>
-<%= button_to 'Log In', log_in_path, method: :get %>
+  <div class="row welcome z-depth-1">
+
+    <h3>Welcome!</h3>
+
+    <div class="welcome-buttons">  <%= button_to 'Sign Up', sign_up_path, method: :get, :class => 'btn nav' %>
+      <%= button_to 'Log In', log_in_path, method: :get, :class => 'btn nav'  %>
+    </div>
+
+  </div>

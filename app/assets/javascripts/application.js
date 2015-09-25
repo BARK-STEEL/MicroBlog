@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require materialize
 
 console.log('...application manifest loaded');

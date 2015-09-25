@@ -1,14 +1,48 @@
 <input type="hidden" id="api-token" value="<%= @user.token %>">
 
-<h3>Welcome, <%= @user.username %>! </h3>
+<div class="container">
+  <div class="profile">
+    <div class="row">
+      <div class="col s3 offset-s1 pic">
+        <img src="<%= @user.profile_photo  %>" class="circle profile-pic" alt="" />
+        <input id='pic2' type="hidden" value="<%= @user.profile_photo2 %>">
+        <input id='font' type="hidden" value="<%= @user.post_font %>">
+        <input id='color' type="hidden" value="<%= @user.color %>">
+      </div>
+      <div class="col s4 offset-s1 header username">
+        <h3>Welcome, <%= @user.username %>! </h3>
+      </div>
+    </div>
 
-<%= button_to 'Log Out', log_out_path, method: :delete %>
 
-<form id="create-post" action="/api/posts" method="post">
-  <input type="text" id="title" name="post[title]" placeholder="title">
-  <input type="text" id="content" name="post[content]" placeholder="content">
-  <button type="submit">Submit</button>
-</form>
+    <div class="row">
+      <div class="col s3 offset-s1 z-depth-1" id="posting">
+        <div class="row">
+          <h5>What's on your mind?</h5>
+        </div>
+        <form id="create-post" action="/api/posts" method="post">
+          <input type="text" id="title" name="post[title]" placeholder="Headline!">
+          <textarea rows="4" cols="50"  id="content" name="post[content]" class="materialize-textarea" placeholder="Enter your thoughts here..."></textarea>
+          <button class="btn waves-effect waves-light" type="submit"><i class="small material-icons">done</i></button>
+        </form>
+      </div>
+      <div class="col s6 offset-s2 posts">
+        <div class="row">
+          <div class="col s9">
+            <p class="dateThoughts">Your thoughts on <span id="journalDate"><%= Time.now.strftime('%_m/%d/%Y') %></span></p>
+          </div>
+          <div class="col s3">
+            <input type="date" class="datepicker" placeholder="Change date"><br/>
+              <button class="btn-floating small waves-effect waves-light" id="dateButton" type="click" name="button"><i class="large material-icons">query_builder</i></button>
+          </div>
+        </div>
 
-<section id="posts-container">
-</section>
+        <div class="row">
+          <section id="posts-container" class="z-depth-1">
+
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
