@@ -1,8 +1,15 @@
 console.log('...scripts loaded');
 
 $(document).ready(function(){
-  console.log('hi');
+
+  $('.modal-trigger').leanModal({
+    dismissible: true,
+  });
+
+  // Initialize select options for materialize
   $('#fontSelect').material_select();
+
+  // Spins and changes profile photo
   $('.profile-pic').on('click', function(){
     $this = $(this);
     $this.css({transform:'rotate(3600deg)'});
@@ -10,6 +17,8 @@ $(document).ready(function(){
       $this.attr('src', $('#pic2').val());
     }, 850);
   });
+
+  // Shadow/depth effects on hover
   $('#posting').on('mouseenter', function(){
     $(this).addClass('z-depth-2');
   });
@@ -22,8 +31,6 @@ $(document).ready(function(){
   $('.profile-pic').on('mouseleave', function(){
     $(this).removeClass('z-depth-2');
   });
-  $('#posts-container').css('font-family', $('#font').val());
-  // $('body').css({backgroundColor: $('#color').val() , backgroundImage: "url('http://www.transparenttextures.com/patterns/white-diamond.png')"} );
   $('#posts-container').on('mouseenter', function(){
     $(this).addClass('z-depth-2');
   });
@@ -31,6 +38,9 @@ $(document).ready(function(){
     $(this).removeClass('z-depth-2');
   });
 
+  // Changes post font
+  $('#posts-container').css('font-family', $('#font').val());
+  // $('body').css({backgroundColor: $('#color').val() , backgroundImage: "url('http://www.transparenttextures.com/patterns/white-diamond.png')"} );
 });
 
 var token = $('#api-token').val();
@@ -77,9 +87,15 @@ app.PostListView = Backbone.View.extend({
   },
   render: function(){
     this.$el.empty();
+
+    // Date filter
     var day;
     var date = new Date();
+
+    // Grabs formatted date passed in from datepicker or today's date
     var dateCustom = this.date || date.getMonth()+1 + '/' + date.getDate() + '/' + date.getFullYear();
+
+    // Only selects posts that match passed in date
     var posts = this.collection.models.filter(function(post){
       day = new Date(post.get("created_at"));
       return day.getMonth()+1 + '/' + day.getDate() + '/' + day.getFullYear() === dateCustom;

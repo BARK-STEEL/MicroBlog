@@ -3,8 +3,46 @@
 
     <h3>Welcome!</h3>
 
-    <div class="welcome-buttons">  <%= button_to 'Sign Up', sign_up_path, method: :get, :class => 'btn nav' %>
-      <%= button_to 'Log In', log_in_path, method: :get, :class => 'btn nav'  %>
-    </div>
+
+    <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Sign Up</a>
+
+    <div class="row">
+      <div class="col s4">
+        <div id="modal2" class="modal modal-fixed-footer">
+          <div class="modal-content" id="modal-content2">
+            <h5>Please Sign Up</h5>
+
+            <%= form_for @user, :id => 'signInForm' do |f| %>
+              <div class="input-field col s8">
+                <%= f.text_field :username, :id => 'username' %>
+                <%= f.label :username, :for => 'username' %>
+              </div>
+              <div class="input-field col s8">
+                <%= f.password_field :password, :id => 'password'%>
+                <%= f.label :password, :for => 'password' %>
+              </div>
+
+              <div class="input-field col s8">
+                <%= f.text_field :profile_photo, :id => 'profile_photo' %>
+                <%= f.label 'Profile Photo', :for => 'profile_photo' %>
+              </div>
+              <div class="input-field col s8">
+                <%= f.text_field :profile_photo2, :id => 'profile_photo2' %>
+                <%= f.label 'Profile Photo 2', :for => 'profile_photo2' %>
+              </div>
+              <!-- <%= f.label 'Profile Color' %> -->
+              <!-- <%= f.text_field :color %> -->
+              <div class="input-field col s8">
+                <%= f.select :post_font, options_for_select(['futura', 'helvetica', 'courier', 'papyrus', 'impact', 'copperplate'], :selected => @user.post_font), {:include_blank => true}, :id => "fontSelect" %>
+                <%= f.label :post_font, :for => 'fontSelect' %>
+              </div>
+              </div>
+              <div id="modal-footer" class="modal-footer">
+                <%= f.submit nil, :class => "btn modal-action modal-close" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
 
   </div>

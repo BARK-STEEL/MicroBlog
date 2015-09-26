@@ -27,10 +27,42 @@ body {
   margin: 20% 0 0 20%;
 }
 
-.log-in, .sign-up, .edit {
-  margin-top: 10%;
-  width: 50%;
-  padding: 3%;
+.modal, #modal-footer {
+  background-image: url(http://www.transparenttextures.com/patterns/white-diamond.png);
+  background-color: #8e877a;
+}
+
+#modal-content {
+  margin-left: 15%;
+  width: 100%;
+}
+
+#modal-content2 {
+  margin-left: 15%;
+  width: 100%;
+  text-align: left;
+}
+
+.loginform {
+  position: absolute;
+  right: 5%;
+  top: 2%;
+}
+
+#loginform label{
+  color: rgb(93, 89, 89);
+}
+
+.new_user label{
+  color: rgb(93, 89, 89);
+}
+
+#modal1, #modal2 {
+  width: 35%;
+}
+
+.edit_user label {
+  color: rgb(93, 89, 89);
 }
 
 .header {

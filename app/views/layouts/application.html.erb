@@ -11,17 +11,34 @@
 <body>
   <div class="siteLogo z-depth-1">
     <h1 class="title">
-      talk to me, goose
+      talk to me, goose<span class="r">&#x00AE</span>
     </h1>
     <p class="tagline">
       a safe place to air it out
     </p>
   </div>
+  <div class="row loginform">
+    <%= form_tag '/sessions', id: 'loginform', method: :post do %>
+      <div class="input-field col s3">
+        <%= label_tag :username, nil,for: 'username-login' %>
+        <%= text_field_tag :username, nil, :required => true, id: 'username-login' %>
+      </div>
+      <div class="input-field col s3">
+        <%= label_tag :password, nil, for: 'password-login' %>
+        <%= password_field_tag :password, nil, :required => true, id: 'password-login' %>
+      </div>
+      <%= submit_tag 'Log In', :class => 'btn' %>
+    <% end %>
+  </div>
 
 <%= yield %>
+
 <script>
 $(document).ready(function(){
   $('#fontSelect').material_select();
+  $('.modal-trigger').leanModal({
+    dismissible: true,
+  });
 });
 </script>
 
