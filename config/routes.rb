@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root 'welcome#index'
-  
+
 
   get '/users/log_in' => 'users#log_in', as: :log_in
   get '/users/sign_up' => 'users#sign_up', as: :sign_up
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   delete '/sessions' => 'sessions#destroy', as: :log_out
 
   namespace :api do
-    resources :posts, except: [:new]
+    resources :posts, except: [:new, :edit]
   end
 
 end

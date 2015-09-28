@@ -55,7 +55,8 @@ var app = app || {};
 
 // Backbone
 app.Post = Backbone.Model.extend({
-  defaults:{}
+  defaults:{
+  }
 });
 
 app.PostCollection = Backbone.Collection.extend({
